@@ -1,0 +1,5 @@
+node_modules/**/*
+.idea/backend_app.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
