@@ -20,28 +20,28 @@ io.on("connection", (socket) => {
     console.log(`Usuario conectado: ${socket.id}`);
     
     socket.on("start",() => {
-        io.emit("start");
+        io.emit("start_recording");
         console.log("start_recording");
     });
 
     socket.on("pausa",() => {
-        io.emit("pausar");
+        io.emit("pausar_recording");
         console.log("pausar_recording");
     });
 
     socket.on("continua",() => {
-        io.emit("continuar");
-        console.log("continua_recording");
+        io.emit("continuar_recording");
+        console.log("continuar_recording");
     });
 
     socket.on("stop",() => {
-        io.emit("stop");
+        io.emit("stop_recording");
         console.log("stop_recording");
     });
 
-    socket.on("stream",() => {
-        io.emit("stream");
-        console.log("Emitido");
+    socket.on("upload",() => {
+        io.emit("upload_recording");
+        console.log("upload_recording");
     });
 });
 
