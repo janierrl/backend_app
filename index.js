@@ -17,31 +17,36 @@ const io = new Server(server,{
 });
 
 io.on("connection", (socket) => {
-    console.log(`Usuario conectado: ${socket.id}`);
-    
-    socket.on("start",() => {
+    socket.on("start", () => {
         io.emit("start_recording");
-        console.log("start_recording");
     });
 
-    socket.on("pausa",() => {
+    socket.on("pausa", () => {
         io.emit("pausar_recording");
-        console.log("pausar_recording");
     });
 
-    socket.on("continua",() => {
+    socket.on("continua", () => {
         io.emit("continuar_recording");
-        console.log("continuar_recording");
     });
 
-    socket.on("stop",() => {
+    socket.on("stop", () => {
         io.emit("stop_recording");
-        console.log("stop_recording");
     });
 
-    socket.on("upload",() => {
-        io.emit("upload_recording");
-        console.log("upload_recording");
+    socket.on("upload", (data) => {
+        io.emit("upload_recording", data);
+    });
+
+    socket.on("started", () => {
+        io.emit("started_record");
+    });
+
+    socket.on("paused", () => {
+        io.emit("paused_record");
+    });
+
+    socket.on("stopped", () => {
+        io.emit("stopped_record");
     });
 });
 
